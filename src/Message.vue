@@ -11,11 +11,11 @@
     <div class="message-box animated" v-if="show">
       <article :class="['message', type ? `is-${type}` : '']">
         <div class="message-header">
-          <button class="delete touchable" @click="close()" v-if="showCloseButton"></button>
           <span class="icon" v-if="icon">
             <i :class="['fa', `fa-${icon}`]"></i>
           </span>
           {{ title }}
+          <button class="delete touchable" @click="close()" v-if="showCloseButton"></button>
         </div>
         <div class="message-body" v-if="message">{{ message }}</div>
       </article>
@@ -147,7 +147,7 @@ export default {
 
   .message-box {
     position: absolute;
-    left: 50%;
+    right: 0;
     transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     pointer-events: all;
@@ -155,7 +155,7 @@ export default {
 
   .message {
     position: relative;
-    right: 50%;
+    margin: 20px;
 
     .delete {
       float: right;
